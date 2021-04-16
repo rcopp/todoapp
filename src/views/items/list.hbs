@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="row">
+        {{#if items}}
+            <div class="col-md-4 mx-auto">
+                <div class="card text-justify">
+                    <div class="card-body">
+                            {{#each items}}
+                                <div class="form-group mt-3">
+                                    {{#if done}}
+                                        <input type="checkbox" name="done" checked disabled>
+                                    {{else}}
+                                        <input type="checkbox" name="done" disabled>
+                                    {{/if}}
+                                    {{title}}
+                                    <a href="/items/delete/{{id}}" class="btn btn-danger btn-sm mybutton">
+                                        Borrar
+                                    </a>
+                                    <a href="/items/edit/{{id}}" class="btn btn-primary btn-sm mybutton">
+                                        Editar
+                                    </a>
+                                </div>
+                            {{/each}}
+                            <div class="mt-3">
+                                <a href="/items/add" class="btn btn-success w-100">
+                                    Crear nuevo
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>No hay tareas guardadas aún.</p>
+                    <p>Comienza a crearlas <a href="/items/add" class="btn btn-info btn-sm"><strong>Aquí</strong></a></p>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</div>
+
